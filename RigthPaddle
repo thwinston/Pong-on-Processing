@@ -1,0 +1,41 @@
+class rightPaddle {
+  float ypos;
+  float tallness;
+  float mouse;
+
+  rightPaddle(float startTallness, float tempMouse) {
+    tallness = startTallness;
+    ypos = 250;
+    mouse = tempMouse;
+  }
+
+  void display() {
+    rect(780, ypos, 5, tallness, 5);
+  }
+  void runPlayer() {
+    if (mouse == 1) {
+      ypos = mouseY;
+    }
+  }
+
+  void keyPressed() {
+    if (key == CODED) {
+      if (keyCode == UP) {
+        ypos = ypos - 10;
+        println("UP");
+      } else if (keyCode == DOWN) {
+        ypos = ypos + 10;
+        println("DOWN");
+      }
+    }
+  }
+  void keyReleased() {
+    if (key == CODED) {
+      if (keyCode == UP) {
+        key = 0;
+      } else if (keyCode == DOWN) {
+        key = 0;
+      }
+    }
+  }
+}
