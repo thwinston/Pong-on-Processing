@@ -1,0 +1,28 @@
+PImage bg;
+Ball myBall;
+int running;
+leftPaddle myLeftPaddle;
+rightPaddle myRightPaddle;
+
+//Center is at 400, 225
+
+void setup() {
+  myBall = new Ball(400, 225, 1, "left");
+  myRightPaddle = new rightPaddle(40, 0);
+  running = 1;
+  size(800, 450);
+  bg = loadImage("Background" + round(random(1, 7)) + ".png");
+}
+
+void draw() {
+  background(bg);
+  
+  myBall.display();
+  if (running == 1) {
+    myBall.run();
+  }
+  myRightPaddle.display();
+  myRightPaddle.runPlayer();
+  myRightPaddle.keyPressed();
+  myRightPaddle.keyReleased();
+}
